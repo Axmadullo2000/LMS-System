@@ -1,0 +1,396 @@
+:root {
+    --gold: #d4af37;
+    --dark-gold: #b8960f;
+    --black: #0a0a0a;
+    --deep-black: #0f0f0f;
+}
+
+/* === БАЗОВАЯ КНОПКА === */
+.btn-premium {
+    display: inline-block;
+    background: transparent;
+    color: var(--gold);
+    border: 1px solid var(--gold);
+    padding: 10px 25px;
+    border-radius: 30px;
+    font-weight: bold;
+    text-decoration: none;
+    font-size: 1rem;
+    text-align: center;
+    cursor: pointer;
+    transition: all 0.4s ease;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    position: relative;
+    overflow: hidden;
+}
+
+.btn-premium:hover {
+    background: var(--gold);
+    color: black;
+    transform: translateY(-4px);
+    box-shadow: 0 15px 35px rgba(212, 175, 55, 0.4);
+}
+
+/* === ПОДТИПЫ === */
+.btn-view   { border-width: 2px; font-weight: 800; }
+.btn-edit   { border-style: dashed; background: rgba(212,175,55,0.05); }
+.btn-delete { color: #ff4444; border-color: #ff4444; }
+.btn-delete:hover { background: #ff4444; color: white; box-shadow: 0 15px 35px rgba(255,68,68,0.4); }
+.btn-create { padding: 12px 30px; font-size: 1.05rem; border-width: 2px; background: rgba(212,175,55,0.08); }
+.btn-hero   { padding: 18px 55px; font-size: 1.4rem; border-width: 3px; letter-spacing: 3px; }
+.btn-secondary { color: #ccc; border-color: #555; background: rgba(30,30,30,0.6); }
+.btn-secondary:hover { background: rgba(212,175,55,0.15); border-color: var(--gold); color: white; }
+
+/* === Остальной стиль страниц === */
+body {
+    margin: 0;
+    background: linear-gradient(135deg, var(--black) 0%, var(--deep-black) 100%);
+    color: #e8e8e8;
+    font-family: 'Roboto', sans-serif;
+    min-height: 100vh;
+    padding-top: 90px;
+}
+
+.topbar {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    height: 80px;
+    background: rgba(10,10,10,0.98);
+    backdrop-filter: blur(20px);
+    border-bottom: 1px solid rgba(212,175,55,0.3);
+    box-shadow: 0 15px 40px rgba(0,0,0,0.9);
+    z-index: 1000;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 60px;
+}
+
+.topbar .logo {
+    font-family: 'Cinzel', serif;
+    font-size: 2.4rem;
+    background: linear-gradient(to right, var(--gold), #fff);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    letter-spacing: 4px;
+}
+
+.logout-btn {
+    background: transparent;
+    color: var(--gold);
+    border: 1px solid var(--gold);
+    padding: 10px 25px;
+    border-radius: 30px;
+    font-weight: bold;
+    text-decoration: none;
+    transition: all 0.4s;
+}
+.logout-btn:hover {
+    background: var(--gold);
+    color: black;
+    box-shadow: 0 0 20px rgba(212,175,55,0.6);
+}
+
+.container { max-width: 1400px; margin: 0 auto; padding: 50px 30px; }
+
+.page-header h1 {
+    font-family: 'Cinzel', serif;
+    font-size: 4.8rem;
+    text-align: center;
+    margin: 0 0 15px 0;
+    background: linear-gradient(45deg, var(--gold), #fff, var(--gold));
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    letter-spacing: 8px;
+}
+
+.page-header p {
+    text-align: center;
+    color: #aaa;
+    font-size: 1.4rem;
+    letter-spacing: 2px;
+}
+
+.empty-state {
+    text-align: center;
+    padding: 100px 40px;
+    background: rgba(20,20,20,0.6);
+    border-radius: 20px;
+    border: 1px dashed rgba(212,175,55,0.3);
+    max-width: 700px;
+    margin: 0 auto;
+}
+
+.empty-icon {
+    font-size: 6rem;
+    color: #444;
+    margin-bottom: 30px;
+}
+
+.empty-state h2 { color: #ccc; margin: 20px 0; }
+
+.groups-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(360px, 1fr));
+    gap: 30px;
+    margin-top: 40px;
+}
+
+.group-card {
+    background: rgba(20,20,20,0.95);
+    border: 1px solid rgba(212,175,55,0.2);
+    border-radius: 18px;
+    overflow: hidden;
+    box-shadow: 0 15px 40px rgba(0,0,0,0.7);
+    transition: all 0.5s ease;
+}
+
+.group-card:hover {
+    transform: translateY(-12px);
+    border-color: var(--gold);
+    box-shadow: 0 30px 70px rgba(0,0,0,0.9), 0 0 40px rgba(212,175,55,0.2);
+}
+
+.group-header {
+    background: linear-gradient(90deg, var(--gold), var(--dark-gold));
+    color: black;
+    padding: 20px;
+    text-align: center;
+    font-family: 'Cinzel', serif;
+    font-size: 1.8rem;
+    letter-spacing: 2px;
+    font-weight: 700;
+}
+
+.group-body { padding: 30px; }
+
+.group-desc {
+    color: #ccc;
+    font-size: 1.1rem;
+    line-height: 1.7;
+    margin-bottom: 30px;
+    min-height: 60px;
+}
+
+.group-stats {
+    display: flex;
+    justify-content: space-around;
+    padding: 25px 0;
+    border-top: 1px solid rgba(212,175,55,0.2);
+    border-bottom: 1px solid rgba(212,175,55,0.2);
+    margin-bottom: 30px;
+}
+
+.stat .num {
+    font-size: 3rem;
+    color: var(--gold);
+    font-weight: bold;
+    font-family: 'Playfair Display', serif;
+}
+
+.stat .label {
+    color: #999;
+    font-size: 0.9rem;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+}
+
+.group-actions {
+    display: flex;
+    justify-content: center;
+    gap: 12px;
+    flex-wrap: wrap;
+}
+
+/* Левая панель действий — всегда видна, аккуратно слева */
+.actions-sidebar {
+    position: absolute;
+    top: 120px;
+    left: 40px;
+    display: flex;
+    gap: 14px;
+    z-index: 10;
+}
+
+.btn-create-sm {
+    padding: 11px 24px;
+    font-size: 0.98rem;
+    border-width: 2px;
+    background: rgba(212,175,55,0.1);
+    min-width: 180px;
+    text-align: center;
+}
+
+.btn-secondary-sm {
+    padding: 10px 24px;
+    font-size: 0.95rem;
+    background: rgba(40,40,40,0.7);
+    border-color: #555;
+    color: #bbb;
+    min-width: 180px;
+    text-align: center;
+}
+
+.btn-secondary-sm:hover {
+    background: rgba(212,175,55,0.12);
+    border-color: var(--gold);
+    color: white;
+}
+
+/* Чтобы контент не заезжал под кнопки */
+.container {
+    position: relative;
+    padding-left: 240px; /* место под левую панель */
+    padding-top: 50px;
+    padding-right: 40px;
+}
+
+/* === ЛЮКСОВОЕ МОДАЛЬНОЕ ОКНО УДАЛЕНИЯ === */
+.modal-overlay {
+    position: fixed;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background: rgba(0,0,0,0.94);
+    backdrop-filter: blur(12px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 10000;
+    animation: fadeIn 0.5s ease;
+}
+
+.modal-content {
+    background: linear-gradient(135deg, #111 0%, #1a1a1a 100%);
+    border: 2px solid var(--gold);
+    border-radius: 24px;
+    width: 90%;
+    max-width: 560px;
+    box-shadow:
+            0 40px 100px rgba(0,0,0,0.95),
+            0 0 80px rgba(212,175,55,0.3);
+    overflow: hidden;
+    animation: modalRise 0.6s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.modal-header {
+    background: linear-gradient(90deg, var(--gold), var(--dark-gold));
+    color: black;
+    padding: 25px 40px;
+    text-align: center;
+    position: relative;
+    font-family: 'Cinzel', serif;
+    font-size: 2rem;
+    letter-spacing: 4px;
+    font-weight: 900;
+}
+
+.modal-close {
+    position: absolute;
+    top: 50%;
+    right: 40px;
+    transform: translateY(-50%);
+    font-size: 2.5rem;
+    cursor: pointer;
+    color: black;
+    font-weight: bold;
+    transition: all 0.3s;
+}
+
+.modal-close:hover {
+    color: #333;
+    transform: translateY(-50%) scale(1.2);
+}
+
+.modal-body {
+    padding: 50px 40px;
+    text-align: center;
+}
+
+.warning-icon {
+    font-size: 5.5rem;
+    color: var(--gold);
+    margin-bottom: 20px;
+    text-shadow: 0 0 40px rgba(212,175,55,0.6);
+    animation: pulse 2s infinite;
+}
+
+.modal-body h3 {
+    color: #fff;
+    font-size: 1.6rem;
+    margin: 15px 0;
+    font-weight: 600;
+}
+
+.modal-footer {
+    padding: 30px 40px;
+    text-align: center;
+    background: rgba(20,20,20,0.5);
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+.btn-danger {
+    background: #440000;
+    color: #ff6666;
+    border: 2px solid #ff4444;
+    padding: 14px 36px;
+    font-size: 1.1rem;
+    min-width: 200px;
+}
+
+.action-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 42px;
+    height: 42px;
+    margin: 0 6px;
+    border-radius: 50%;
+    font-size: 1.1rem;
+    transition: all 0.4s;
+    border: 1px solid #444;
+}
+
+.action-btn.delete { background: #3d0000; border-color: #ff4444; color: #ff6666; }
+
+.action-btn.delete:hover { background: #ff4444; color: white; }
+
+.btn-danger:hover {
+    background: #ff4444;
+    color: white;
+    box-shadow: 0 20px 50px rgba(255,68,68,0.5);
+}
+
+/* Анимации */
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+@keyframes modalRise {
+    from { transform: translateY(100px); opacity: 0; }
+    to { transform: translateY(0); opacity: 1; }
+}
+
+@keyframes pulse {
+    0%, 100% { opacity: 0.8; }
+    50% { opacity: 1; transform: scale(1.05); }
+}
+
+/* На мобильных — убираем боковую панель, кнопки внизу */
+@media (max-width: 992px) {
+    .actions-sidebar {
+        position: static;
+        flex-direction: row;
+        justify-content: center;
+        margin: 30px 0 50px;
+    }
+    .container {
+        padding-left: 30px;
+        padding-right: 30px;
+    }
+}

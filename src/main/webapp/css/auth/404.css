@@ -1,0 +1,83 @@
+:root {
+    --gold: #d4af37;
+    --black: #0f0f0f;
+}
+body {
+    margin: 0;
+    padding: 0;
+    height: 100vh;
+    background: linear-gradient(135deg, #0f0f0f 0%, #1a1a1a 100%);
+    color: #e0e0e0;
+    font-family: 'Roboto', sans-serif;
+    overflow: hidden;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.error-container {
+    text-align: center;
+    z-index: 10;
+}
+.error-code {
+    font-family: 'Cinzel', serif;
+    font-size: 14rem;
+    margin: 0;
+    background: linear-gradient(45deg, var(--gold), #fff, var(--gold));
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    text-shadow: 0 0 40px rgba(212,175,55,0.5);
+    animation: glow 3s ease-in-out infinite alternate;
+}
+.error-message {
+    font-family: 'Playfair Display', serif;
+    font-size: 2.8rem;
+    color: var(--gold);
+    margin: 20px 0;
+}
+.error-desc {
+    font-size: 1.3rem;
+    color: #aaa;
+    max-width: 600px;
+    margin: 30px auto;
+    line-height: 1.7;
+}
+.btn-home {
+    display: inline-block;
+    padding: 16px 44px;
+    background: transparent;
+    color: var(--gold);
+    border: 2px solid var(--gold);
+    border-radius: 50px;
+    font-weight: bold;
+    text-decoration: none;
+    transition: all 0.4s;
+    font-size: 1.1rem;
+}
+.btn-home:hover {
+    background: var(--gold);
+    color: black;
+    transform: translateY(-5px);
+    box-shadow: 0 15px 35px rgba(212,175,55,0.5);
+}
+
+/* Искры — теперь 100% работают */
+.sparkle {
+    position: absolute;
+    color: var(--gold);
+    font-size: 1.8rem;
+    pointer-events: none;
+    animation: sparkle 4s linear infinite;
+    opacity: 0;
+}
+@keyframes sparkle {
+    0%   { transform: translateY(100vh) scale(0); opacity: 0; }
+    10%  { opacity: 1; }
+    90%  { opacity: 1; }
+    100% { transform: translateY(-100px) scale(1); opacity: 0; }
+}
+@keyframes glow {
+    from { text-shadow: 0 0 20px rgba(212,175,55,0.4); }
+    to   { text-shadow: 0 0 60px rgba(212,175,55,0.8); }
+}

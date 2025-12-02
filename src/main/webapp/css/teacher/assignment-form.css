@@ -1,0 +1,300 @@
+:root {
+    --gold: #d4af37;
+    --dark-gold: #b8960f;
+    --black: #0a0a0a;
+    --deep-black: #0f0f0f;
+}
+
+body {
+    margin: 0;
+    background: linear-gradient(135deg, var(--black) 0%, var(--deep-black) 100%);
+    color: #e8e8e8;
+    font-family: 'Roboto', sans-serif;
+    min-height: 100vh;
+    padding-top: 100px;
+}
+
+.topbar {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    height: 80px;
+    background: rgba(10,10,10,0.98);
+    backdrop-filter: blur(20px);
+    border-bottom: 1px solid rgba(212,175,55,0.3);
+    box-shadow: 0 15px 40px rgba(0,0,0,0.9);
+    z-index: 1000;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 60px;
+}
+
+.topbar .logo {
+    font-family: 'Cinzel', serif;
+    font-size: 2.5rem;
+    background: linear-gradient(to right, var(--gold), #fff);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    letter-spacing: 5px;
+}
+
+.container {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 60px 30px;
+}
+
+.page-title {
+    text-align: center;
+    margin-bottom: 60px;
+}
+
+.page-title h1 {
+    font-family: 'Cinzel', serif;
+    font-size: 4.5rem;
+    margin: 0;
+    background: linear-gradient(45deg, var(--gold), #fff, var(--gold));
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    letter-spacing: 8px;
+    font-weight: 900;
+}
+
+.page-title p {
+    color: #aaa;
+    font-size: 1.4rem;
+    margin-top: 15px;
+    letter-spacing: 2px;
+}
+
+.form-card {
+    background: rgba(20,20,20,0.95);
+    border: 1px solid rgba(212,175,55,0.25);
+    border-radius: 24px;
+    padding: 60px 70px;
+    box-shadow:
+            0 30px 80px rgba(0,0,0,0.9),
+            0 0 60px rgba(212,175,55,0.12) inset;
+}
+
+.form-group {
+    margin-bottom: 40px;
+}
+
+label {
+    display: block;
+    color: var(--gold);
+    font-weight: bold;
+    font-size: 1.3rem;
+    margin-bottom: 12px;
+    letter-spacing: 1.5px;
+}
+
+input[type="text"],
+textarea,
+select {
+    width: 100%;
+    padding: 18px 22px;
+    background: rgba(15,15,15,0.9);
+    border: 1px solid rgba(212,175,55,0.3);
+    border-radius: 14px;
+    color: white;
+    font-size: 1.15rem;
+    transition: all 0.4s;
+    box-shadow: 0 5px 20px rgba(0,0,0,0.6);
+}
+
+input:focus, textarea:focus, select:focus {
+    outline: none;
+    border-color: var(--gold);
+    box-shadow: 0 0 30px rgba(212,175,55,0.5);
+    transform: translateY(-2px);
+}
+
+textarea {
+    min-height: 160px;
+    resize: vertical;
+}
+
+.checkbox-group {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin: 20px 0;
+}
+
+.checkbox-group input[type="checkbox"] {
+    width: 22px;
+    height: 22px;
+    accent-color: var(--gold);
+    cursor: pointer;
+}
+
+.checkbox-group label {
+    font-size: 1.1rem;
+    margin: 0;
+    color: #ddd;
+}
+
+.form-actions {
+    text-align: center;
+    margin-top: 60px;
+}
+
+.btn-submit {
+    background: transparent;
+    color: var(--gold);
+    border: 2px solid var(--gold);
+    padding: 18px 60px;
+    border-radius: 50px;
+    font-size: 1.4rem;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.5s;
+    min-width: 280px;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+}
+
+.btn-submit:hover {
+    background: var(--gold);
+    color: black;
+    transform: translateY(-8px);
+    box-shadow: 0 25px 60px rgba(212,175,55,0.6);
+}
+
+.back-link {
+    display: block;
+    text-align: center;
+    margin-top: 40px;
+    color: #888;
+    text-decoration: none;
+    font-size: 1.1rem;
+    transition: 0.4s;
+}
+
+.back-link:hover {
+    color: var(--gold);
+}
+
+/* === СТИЛЬ ДЛЯ ДАТЫ И ВРЕМЕНИ === */
+.datetime-wrapper {
+    display: flex;
+    gap: 12px;
+    align-items: center;
+    position: relative;
+}
+
+.datetime-wrapper input {
+    flex: 1;
+    padding: 18px 20px;
+    background: rgba(15,15,15,0.9);
+    border: 1px solid rgba(212,175,55,0.3);
+    border-radius: 14px;
+    color: white;
+    font-size: 1.15rem;
+}
+
+.datetime-preview {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: #666;
+    font-size: 0.95rem;
+    pointer-events: none;
+    transition: all 0.4s;
+    z-index: 1;
+}
+
+.datetime-wrapper input:focus + .datetime-preview,
+.datetime-wrapper input:not(:placeholder-shown) + .datetime-preview {
+    opacity: 0;
+    transform: translate(-50%, -50%) scale(0.8);
+}
+
+/* === СТИЛЬ ДЛЯ ОЧКОВ === */
+.score-input-wrapper {
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+.score-input-wrapper input {
+    padding-right: 130px !important;
+    font-size: 1.8rem;
+    font-weight: bold;
+    text-align: center;
+}
+
+.score-badge {
+    position: absolute;
+    right: 8px;
+    top: 50%;
+    transform: translateY(-50%);
+    background: linear-gradient(45deg, var(--gold), #fff);
+    color: black;
+    padding: 10px 20px;
+    border-radius: 50px;
+    font-weight: 900;
+    font-size: 1.1rem;
+    min-width: 100px;
+    text-align: center;
+    box-shadow: 0 8px 25px rgba(212,175,55,0.4);
+    pointer-events: none;
+}
+
+.score-badge .points {
+    font-size: 0.8rem;
+    opacity: 0.9;
+    margin-left: 4px;
+}
+
+/* Иконки в лейблах */
+label i {
+    margin-right: 10px;
+    color: var(--gold);
+    font-size: 1.2rem;
+}
+
+
+.btn-cancel {
+    display: inline-block;
+    padding: 12px 30px;
+    background: #555;
+    color: #fff;
+    text-decoration: none;
+    border-radius: 4px;
+    margin-left: 10px;
+    transition: background 0.3s;
+}
+
+.btn-cancel:hover {
+    background: #777;
+}
+
+.checkbox-group {
+    padding: 12px;
+    margin: 8px 0;
+    border: 1px solid #333;
+    border-radius: 4px;
+    transition: all 0.3s;
+}
+
+.checkbox-group:hover {
+    background: rgba(212, 175, 55, 0.05);
+    border-color: #d4af37;
+}
+
+.checkbox-group input[type="checkbox"] {
+    margin-right: 10px;
+    cursor: pointer;
+}
+
+.checkbox-group label {
+    cursor: pointer;
+    user-select: none;
+}
+

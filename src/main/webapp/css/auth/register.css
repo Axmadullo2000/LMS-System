@@ -1,0 +1,146 @@
+/* ==== GENERAL PAGE STYLE ==== */
+body {
+    margin: 0;
+    padding: 0;
+    background: #121212; /* насыщенный черный фон */
+    font-family: "Segoe UI", Roboto, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    color: #f0d67a; /* мягкий золотой текст */
+}
+
+/* ==== MAIN CONTAINER ==== */
+.register-container {
+    background: #1e1e1e; /* темно-серый контейнер */
+    width: 420px;
+    padding: 40px 35px;
+    border-radius: 16px;
+    box-shadow: 0 10px 30px rgba(240, 214, 122, 0.35);
+    animation: fadeIn 0.7s ease;
+}
+
+/* Fade animation */
+@keyframes fadeIn {
+    from {opacity: 0; transform: translateY(12px);}
+    to {opacity: 1; transform: translateY(0);}
+}
+
+/* ==== LOGO ICON ==== */
+.logo {
+    text-align: center;
+    margin-bottom: 15px;
+}
+
+.logo i {
+    font-size: 60px;
+    color: #f0d67a; /* золотой логотип */
+}
+
+/* ==== TITLES ==== */
+h2 {
+    text-align: center;
+    margin: 10px 0 25px;
+    font-weight: 700;
+    color: #f0d67a;
+    text-shadow: 0 2px 5px rgba(0,0,0,0.5);
+}
+
+/* ==== ERROR BOX ==== */
+.error {
+    background: #2b0000;
+    padding: 12px 15px;
+    border-left: 4px solid #f0a500;
+    border-radius: 8px;
+    margin-bottom: 18px;
+    font-size: 14px;
+    color: #ffb84d;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+
+/* ==== FORM FIELDS ==== */
+.form-group {
+    margin-bottom: 18px;
+}
+
+label {
+    font-size: 14px;
+    color: #f0d67a;
+    display: block;
+    margin-bottom: 6px;
+    font-weight: 500;
+}
+
+input,
+select {
+    width: 100%;
+    padding: 12px 14px;
+    border-radius: 8px;
+    border: 1px solid #555;
+    font-size: 15px;
+    transition: 0.25s;
+    background: #2a2a2a;
+    color: #f0d67a;
+}
+
+input::placeholder,
+select::placeholder {
+    color: #d4b94a;
+    opacity: 0.7;
+}
+
+input:focus,
+select:focus {
+    border-color: #f0d67a;
+    box-shadow: 0 0 0 3px rgba(240, 214, 122, 0.25);
+    outline: none;
+}
+
+/* ==== BUTTONS ==== */
+button {
+    width: 100%;
+    padding: 14px;
+    background: linear-gradient(45deg, #f0d67a, #c69c2c); /* золотой градиент */
+    border: none;
+    color: #1e1e1e;
+    font-size: 16px;
+    border-radius: 10px;
+    cursor: pointer;
+    margin-top: 5px;
+    transition: 0.3s;
+    font-weight: 700;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 8px;
+    box-shadow: 0 4px 15px rgba(240,214,122,0.4);
+}
+
+button:hover {
+    background: linear-gradient(45deg, #c69c2c, #f0d67a);
+    box-shadow: 0 6px 20px rgba(240,214,122,0.55);
+}
+
+/* ==== LINKS ==== */
+.back-link {
+    text-align: center;
+    margin-top: 18px;
+    font-size: 14px;
+}
+
+.back-link a {
+    color: #f0d67a;
+    text-decoration: none;
+    font-weight: 600;
+}
+
+.back-link a:hover {
+    text-decoration: underline;
+}
+
+#specializationField {
+    display: none;
+}

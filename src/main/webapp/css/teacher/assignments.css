@@ -1,0 +1,278 @@
+:root {
+    --gold: #d4af37;
+    --dark-gold: #b8960f;
+    --black: #0a0a0a;
+    --deep-black: #0f0f0f;
+    --gray: #1a1a1a;
+}
+body {
+    margin: 0;
+    background: linear-gradient(135deg, var(--black) 0%, var(--deep-black) 100%);
+    color: #e8e8e8;
+    font-family: 'Roboto', sans-serif;
+    min-height: 100vh;
+    padding-top: 100px;
+}
+.topbar {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    height: 80px;
+    background: rgba(10,10,10,0.98);
+    backdrop-filter: blur(20px);
+    border-bottom: 1px solid rgba(212,175,55,0.3);
+    box-shadow: 0 15px 40px rgba(0,0,0,0.9);
+    z-index: 1000;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 60px;
+}
+.topbar .logo {
+    font-family: 'Cinzel', serif;
+    font-size: 2.5rem;
+    background: linear-gradient(to right, var(--gold), #fff);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    letter-spacing: 5px;
+}
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 40px 30px;
+}
+.page-title {
+    text-align: center;
+    margin-bottom: 60px;
+}
+.page-title h1 {
+    font-family: 'Cinzel', serif;
+    font-size: 5rem;
+    margin: 0;
+    background: linear-gradient(45deg, var(--gold), #fff, var(--gold));
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    letter-spacing: 10px;
+}
+.btn-create {
+    display: inline-block;
+    background: transparent;
+    color: var(--gold);
+    border: 2px solid var(--gold);
+    padding: 18px 40px;
+    border-radius: 50px;
+    font-weight: bold;
+    text-decoration: none;
+    font-size: 1.2rem;
+    transition: all 0.5s;
+    margin-bottom: 40px;
+}
+.btn-create:hover {
+    background: var(--gold);
+    color: black;
+    transform: translateY(-8px);
+    box-shadow: 0 20px 50px rgba(212,175,55,0.5);
+}
+.assignments-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(380px, 1fr));
+    gap: 30px;
+}
+.assignment-card {
+    background: rgba(20,20,20,0.95);
+    border: 1px solid rgba(212,175,55,0.25);
+    border-radius: 24px;
+    padding: 30px;
+    transition: all 0.4s;
+    position: relative;
+    overflow: hidden;
+}
+.assignment-card:hover {
+    transform: translateY(-15px);
+    box-shadow: 0 30px 80px rgba(0,0,0,0.9), 0 0 60px rgba(212,175,55,0.15) inset;
+}
+.assignment-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.8rem;
+    color: var(--gold);
+    margin: 0 0 15px 0;
+}
+.assignment-meta {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 15px;
+    margin: 20px 0;
+    color: #aaa;
+    font-size: 1.1rem;
+}
+.status {
+    padding: 8px 20px;
+    border-radius: 50px;
+    font-weight: bold;
+    font-size: 0.9rem;
+}
+.status-active { background: rgba(0,200,0,0.2); color: #0f0; border: 1px solid rgba(0,255,0,0.3); }
+.status-past { background: rgba(200,0,0,0.2); color: #f66; border: 1px solid rgba(255,0,0,0.3); }
+.groups-list {
+    margin: 20px 0;
+    font-size: 1rem;
+    color: #ccc;
+}
+.groups-list span {
+    background: rgba(212,175,55,0.15);
+    padding: 6px 14px;
+    border-radius: 20px;
+    margin-right: 8px;
+    font-size: 0.9rem;
+}
+.actions {
+    margin-top: 25px;
+    display: flex;
+    gap: 12px;
+    flex-wrap: wrap;
+}
+.btn-sm {
+    padding: 10px 20px;
+    border-radius: 50px;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 0.95rem;
+    transition: all 0.3s;
+}
+.btn-view {
+    background: transparent;
+    color: var(--gold);
+    border: 1px solid var(--gold);
+}
+.btn-view:hover {
+    background: var(--gold);
+    color: black;
+}
+.btn-delete {
+    background: transparent;
+    color: #ff4444;
+    border: 1px solid #ff4444;
+}
+.btn-delete:hover {
+    background: #ff4444;
+    color: white;
+}
+.no-assignments {
+    text-align: center;
+    padding: 80px 20px;
+    color: #888;
+    font-size: 1.5rem;
+    font-style: italic;
+}
+.success {
+    background: rgba(0,200,0,0.15);
+    color: #0f0;
+    padding: 15px;
+    border-radius: 12px;
+    text-align: center;
+    margin-bottom: 20px;
+    border: 1px solid rgba(0,255,0,0.3);
+}
+
+/* === ЛЮКСОВОЕ МОДАЛЬНОЕ ОКНО УДАЛЕНИЯ === */
+.modal-overlay {
+    position: fixed;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background: rgba(0,0,0,0.94);
+    backdrop-filter: blur(12px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 10000;
+    animation: fadeIn 0.5s ease;
+}
+
+.modal-content {
+    background: linear-gradient(135deg, #111 0%, #1a1a1a 100%);
+    border: 2px solid var(--gold);
+    border-radius: 24px;
+    width: 90%;
+    max-width: 560px;
+    box-shadow:
+            0 40px 100px rgba(0,0,0,0.95),
+            0 0 80px rgba(212,175,55,0.3);
+    overflow: hidden;
+    animation: modalRise 0.6s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.modal-header {
+    background: linear-gradient(90deg, var(--gold), var(--dark-gold));
+    color: black;
+    padding: 25px 40px;
+    text-align: center;
+    position: relative;
+    font-family: 'Cinzel', serif;
+    font-size: 2rem;
+    letter-spacing: 4px;
+    font-weight: 900;
+}
+
+.modal-close {
+    position: absolute;
+    top: 50%;
+    right: 40px;
+    transform: translateY(-50%);
+    font-size: 2.5rem;
+    cursor: pointer;
+    color: black;
+    font-weight: bold;
+    transition: all 0.3s;
+}
+
+.modal-close:hover {
+    color: #333;
+    transform: translateY(-50%) scale(1.2);
+}
+
+.modal-body {
+    padding: 50px 40px;
+    text-align: center;
+}
+
+.warning-icon {
+    font-size: 5.5rem;
+    color: var(--gold);
+    margin-bottom: 20px;
+    text-shadow: 0 0 40px rgba(212,175,55,0.6);
+    animation: pulse 2s infinite;
+}
+
+.modal-body h3 {
+    color: #fff;
+    font-size: 1.6rem;
+    margin: 15px 0;
+    font-weight: 600;
+}
+
+.modal-footer {
+    padding: 30px 40px;
+    text-align: center;
+    background: rgba(20,20,20,0.5);
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+.btn-danger {
+    background: #440000;
+    color: #ff6666;
+    border: 2px solid #ff4444;
+    padding: 14px 36px;
+    font-size: 1.1rem;
+    min-width: 200px;
+}
+
+.btn-danger:hover {
+    background: #ff4444;
+    color: white;
+    box-shadow: 0 20px 50px rgba(255,68,68,0.5);
+}
+
